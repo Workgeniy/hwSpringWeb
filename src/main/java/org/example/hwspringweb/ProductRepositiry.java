@@ -8,5 +8,5 @@ public interface ProductRepositiry extends CrudRepository<Product, Long> {
 
     public List<Product> findByName(String name);
 
-    public List<Product> findByPrise (Double prise);
+    public List<Product> findByPrice (Double price);
 }

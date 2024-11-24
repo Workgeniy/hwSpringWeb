@@ -36,8 +36,8 @@ public class ShopServiceImpl implements ShopService {
     }
 
     @Override
-    public List<Product> findProductsByPrise(Double prise) {
-        return productRepositiry.findByPrise(prise);
+    public List<Product> findProductsByPrice(Double price) {
+        return productRepositiry.findByPrice(price);
     }
 
     @Override

@@ -7,7 +7,7 @@ public interface ShopService {
     Category findCategoryByName(String categoryName);
 
     List<Product> findProductsByName(String categoryName);
-    List<Product> findProductsByPrise(Double prise);
+    List<Product> findProductsByPrice(Double price);
 
     Order findOrderByNumber(Long number);
 }
