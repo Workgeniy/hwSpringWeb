@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>В корзине</title>
+</head>
+<body>
+<h1 th:text="Корзина"></h1>
+
+<form action="#" th:action="@{/addingOnePurchase}" th:object="${Purchase}" method="post">
+    <input th:name="name"/> <span>Purchase</span>
+    <br/>
+
+    <input th:name="price"/> <span>Prise</span>
+    <br/>
+
+    <input type="submit" value="Added purchase"/>
+</form>
+</body>
+</html>

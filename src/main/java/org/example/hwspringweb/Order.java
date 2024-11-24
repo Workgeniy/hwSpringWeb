@@ -6,12 +6,14 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "Order")
+@Table(name = "orders")
 public class Order implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue
-    private Long Id;
+    private Long id;
 
     @Column(unique = true)
     private Long number;
@@ -27,11 +29,11 @@ public class Order implements Serializable {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        id = id;
     }
 
     public Long getNumber() {

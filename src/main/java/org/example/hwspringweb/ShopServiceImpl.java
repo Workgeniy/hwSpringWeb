@@ -16,32 +16,29 @@ public class ShopServiceImpl implements ShopService {
     @Autowired
     private ProductRepositiry productRepositiry;
 
-    @Autowired
-    private CategoryRepository categoryRepository;
-
-    @Autowired
-    private OrderRepository orderRepository;
-
-    @Autowired
-    private ProductOrderRepository productOrderRepository;
-
     @Override
-    public Category findCategoryByName(String categoryName) {
-        return categoryRepository.findByName(categoryName);
+    public List<Product> findProductByName(String name) {
+        return productRepositiry.findByName(name);
     }
 
     @Override
-    public List<Product> findProductsByName(String categoryName) {
-        return productRepositiry.findByName(categoryName);
+    public List<Product> findProductByPrise(Double price) {
+        return productRepositiry.findByPrice(price);
     }
 
     @Override
-    public List<Product> findProductsByPrise(Double prise) {
-        return productRepositiry.findByPrise(prise);
+    public void saveDB(String name, Double prise) {
+        Product product = new Product(name, prise);
+        productRepositiry.save(product);
     }
 
     @Override
-    public Order findOrderByNumber(Long number) {
-        return orderRepository.findByNumber(number);
+    public void saveDB(Product product) {
+        productRepositiry.save(product);
+    }
+
+    @Override
+    public List<Product> getAllProducts() {
+        return (List<Product>) productRepositiry.findAll();
     }
 }

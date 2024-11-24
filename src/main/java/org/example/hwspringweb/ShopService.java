@@ -4,10 +4,11 @@ import java.util.List;
 
 public interface ShopService {
 
-    Category findCategoryByName(String categoryName);
+    List<Product> findProductByName(String name);
+    List<Product> findProductByPrise(Double prise);
 
-    List<Product> findProductsByName(String categoryName);
-    List<Product> findProductsByPrise(Double prise);
+    void saveDB(String name, Double prise);
+    void saveDB(Product product);
 
-    Order findOrderByNumber(Long number);
+    List<Product> getAllProducts();
 }

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HwSpringWebApplication {
 
-    @Autowired
-    ShopService shopService;
+//    @Autowired
+//    ShopService shopService;
 
     public static void main(String[] args) {
         SpringApplication.run(HwSpringWebApplication.class, args);

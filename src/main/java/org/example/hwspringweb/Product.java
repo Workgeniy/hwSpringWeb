@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "products")
 public class Product implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue
@@ -29,11 +30,15 @@ public class Product implements Serializable {
 
     public Product() {}
 
-    public Product( String name, Double price, Category category, List<Product0rder> productOrder) {
+    public Product( String name, Double price) {
         this.name = name;
         this.price = price;
-        this.category = category;
-        this.productOrder = productOrder;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
     }
 
     public String getName() {
@@ -42,14 +47,6 @@ public class Product implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Double getPrice() {

@@ -8,6 +8,8 @@ import java.io.Serializable;
 @Table(name = "productOrder")
 public class Product0rder implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue
     private long id;
@@ -25,19 +27,11 @@ public class Product0rder implements Serializable {
     public Product0rder() {}
 
     public Product0rder(Product product, Order order, Integer count) {
-        super();
         this.product = product;
         this.order = order;
         this.count = count;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public Product getProduct() {
         return product;
