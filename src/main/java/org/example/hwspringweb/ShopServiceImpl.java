@@ -16,6 +16,9 @@ public class ShopServiceImpl implements ShopService {
     @Autowired
     private ProductRepositiry productRepositiry;
 
+    @Autowired
+    private UserDtoRepository userDtoRepository;
+
     @Override
     public List<Product> findProductByName(String name) {
         return productRepositiry.findByName(name);
@@ -40,5 +43,15 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public List<Product> getAllProducts() {
         return (List<Product>) productRepositiry.findAll();
+    }
+
+    @Override
+    public void saveUserToDB(UserDto user) {
+        userDtoRepository.save(user);
+    }
+
+    @Override
+    public UserDto findByEmail(String email) {
+        return userDtoRepository.findOneByEmail(email);
     }
 }
