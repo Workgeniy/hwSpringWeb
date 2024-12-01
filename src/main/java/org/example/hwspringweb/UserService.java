@@ -10,31 +10,26 @@ import java.util.Optional;
 public class UserService {
 
 	@Autowired
-	private UserRepository repo;
+	private UserDtoRepository repo;
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
-	public UserDto addUser(UserDto user)
-	{
+
+	public UserDto addUser(UserDto user) {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return repo.save(user);
 	}
-	
-	public UserDto findUser(Long id)
-	{
+
+	public UserDto findUser(Long id) {
 		Optional<UserDto> user = repo.findById(id);
-		if(user.isPresent())
-		{
+		if (user.isPresent()) {
 			return user.get();
-		}
-		else
-		{
+		} else {
 			return null;
 		}
 	}
-	
-	public UserDto findByEmail(String email)
-	{
-		return repo.findByEmail(email).get(0);
+
+	public UserDto findByEmail(String email) {
+		return repo.findOneByEmail(email);
 	}
+
 }
